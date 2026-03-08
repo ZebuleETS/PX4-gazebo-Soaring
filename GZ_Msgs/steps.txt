@@ -1,16 +1,19 @@
-export GZ_DESCRIPTOR_PATH=/home/radhouene/custom_messages/build
+# Set GZ_MSGS_DIR to the GZ_Msgs root (adjust if your workspace differs)
+GZ_MSGS_DIR=/home/pix4/GoToWP/PX4-Autopilot-soaring/Tools/simulation/gz/GZ_Msgs
+
+export GZ_DESCRIPTOR_PATH=${GZ_MSGS_DIR}/build
 gz msg -l | grep "gz.msgs.Thermal"
 gz msg --info gz.msgs.Thermal
-echo 'export GZ_DESCRIPTOR_PATH=/home/radhouene/custom_messages/build' >> ~/.bashrc
+echo "export GZ_DESCRIPTOR_PATH=${GZ_MSGS_DIR}/build" >> ~/.bashrc
 source ~/.bashrc   # or source ~/.zshrc
 
 
 compile for python 
-protoc --proto_path=/home/radhouene/custom_messages/gz/msgs --python_out=/home/radhouene/custom_messages/python /home/radhouene/custom_messages/gz/msgs/thermal.proto
+protoc --proto_path=${GZ_MSGS_DIR}/gz/msgs --python_out=${GZ_MSGS_DIR}/python ${GZ_MSGS_DIR}/gz/msgs/thermal.proto
 
 nano ~/.bashrc  # or ~/.zshrc
 
-export PYTHONPATH=$PYTHONPATH:/home/radhouene/custom_messages/python (add this line to set python path)
+export PYTHONPATH=$PYTHONPATH:${GZ_MSGS_DIR}/python (add this line to set python path)
 
 source ~/.bashrc  # or ~/.zshrc
 

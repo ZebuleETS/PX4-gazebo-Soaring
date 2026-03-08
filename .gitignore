@@ -1,1 +1,43 @@
 sdf_parsing/build/
+
+# Build artifacts
+build/
+**/build
+
+# Generated files
+*.pb.cc
+*.pb.h
+*.pb.py
+*_pb2.py
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled libraries
+*.so
+*.so.*
+*.a
+*.o
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

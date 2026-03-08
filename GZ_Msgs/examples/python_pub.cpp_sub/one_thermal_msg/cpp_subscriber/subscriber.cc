@@ -6,12 +6,13 @@
 void ThermalCallback(const gz::msgs::Thermal &msg)
 {
     std::cout << "Received Thermal Message:" << std::endl;
-    std::cout << "  Height: " << msg.height() << std::endl;
-    std::cout << "  Radius: " << msg.radius() << std::endl;
-    std::cout << "  X Coordinates: " << msg.x_coordinates() << std::endl;
-    std::cout << "  Y Coordinates: " << msg.y_coordinates() << std::endl;
-    std::cout << "  Force Applied: " << msg.force_applied() << std::endl;
-    std::cout << "  Life Stamp: " << msg.life_stamp() << std::endl;
+    std::cout << "  ID: " << msg.id() << std::endl;
+    std::cout << "  X (ENU East): " << msg.x() << std::endl;
+    std::cout << "  Y (ENU North): " << msg.y() << std::endl;
+    std::cout << "  Zi (CBL height): " << msg.zi() << std::endl;
+    std::cout << "  Wi (updraft strength): " << msg.wi() << std::endl;
+    std::cout << "  Lifetime: " << msg.lifetime() << std::endl;
+    std::cout << "  Birth Time: " << msg.birth_time() << std::endl;
 }
 
 int main(int argc, char **argv)

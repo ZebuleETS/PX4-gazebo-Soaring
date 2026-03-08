@@ -1,5 +1,5 @@
 #include <gz/transport/Node.hh>
-#include <gz/msgs/thermal.pb.h>
+#include "gz/msgs/thermal.pb.h"
 #include <iostream>
 
 // Callback function to process received ThermalGroup messages
@@ -11,12 +11,13 @@ void ThermalGroupCallback(const gz::msgs::ThermalGroup &msg)
     {
         const auto &thermal = msg.thermals(i);
         std::cout << "  Thermal " << i + 1 << ":" << std::endl;
-        std::cout << "    Height: " << thermal.height() << std::endl;
-        std::cout << "    Radius: " << thermal.radius() << std::endl;
-        std::cout << "    X Coordinates: " << thermal.x_coordinates() << std::endl;
-        std::cout << "    Y Coordinates: " << thermal.y_coordinates() << std::endl;
-        std::cout << "    Force Applied: " << thermal.force_applied() << std::endl;
-        std::cout << "    Life Stamp: " << thermal.life_stamp() << std::endl;
+        std::cout << "    ID: " << thermal.id() << std::endl;
+        std::cout << "    X (ENU East): " << thermal.x() << std::endl;
+        std::cout << "    Y (ENU North): " << thermal.y() << std::endl;
+        std::cout << "    Zi (CBL height): " << thermal.zi() << std::endl;
+        std::cout << "    Wi (updraft strength): " << thermal.wi() << std::endl;
+        std::cout << "    Lifetime: " << thermal.lifetime() << std::endl;
+        std::cout << "    Birth Time: " << thermal.birth_time() << std::endl;
     }
 }
 

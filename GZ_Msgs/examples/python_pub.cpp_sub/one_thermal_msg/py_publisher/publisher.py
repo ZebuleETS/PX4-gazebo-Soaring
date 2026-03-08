@@ -9,14 +9,15 @@ def main():
     # Advertise the topic with the Thermal message type
     pub = node.advertise(thermal_topic, thermal_pb2.Thermal)
 
-    # Create and populate the Thermal message
+    # Create and populate the Thermal message (fields match thermal.proto)
     thermal = thermal_pb2.Thermal()
-    thermal.height = 10.5
-    thermal.radius = 5.0
-    thermal.x_coordinates = 100.0
-    thermal.y_coordinates = 200.0
-    thermal.force_applied = 15.0
-    thermal.life_stamp = 1234567890
+    thermal.id = 1
+    thermal.x = 100.0          # ENU East (meters)
+    thermal.y = 200.0          # ENU North (meters)
+    thermal.zi = 1500.0        # Convective boundary layer height (m)
+    thermal.wi = 3.5           # Updraft strength (m/s)
+    thermal.lifetime = 300.0
+    thermal.birth_time = 0.0
 
     # Publish the message in a loop to keep the publisher alive
     while True:
